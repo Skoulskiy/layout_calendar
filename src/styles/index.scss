@@ -7,6 +7,7 @@ $day-width: 100px;
 $days-total: $day-width * $columns-count;
 $gaps-total: $gap-size * ($columns-count - 1);
 $calendar-width: $days-total + $gaps-total;
+$animation-time: 500ms;
 $days-list: mon, tue, wed, thu, fri, sat, sun;
 
 body {
@@ -33,14 +34,14 @@ body {
     align-items: center;
     justify-content: center;
     flex-basis: $day-width;
-    width: 100px;
+    width: $day-width;
     box-sizing: border-box;
     background-color: #eee;
     height: $day-width;
     border: 1px solid #000;
     transition:
-      transform 500ms,
-      background-color 500ms;
+      transform $animation-time,
+      background-color $animation-time;
 
     &::before {
       counter-increment: day-counter;
