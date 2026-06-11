@@ -4,6 +4,9 @@ $columns-count: 7;
 $gap-size: 1px;
 $padding-size: 10px;
 $day-width: 100px;
+$days-total: $day-width * $columns-count;
+$gaps-total: $gap-size * ($columns-count - 1);
+$calendar-width: $days-total + $gaps-total;
 $days-list: mon, tue, wed, thu, fri, sat, sun;
 
 body {
@@ -24,11 +27,11 @@ body {
   padding: $padding-size;
   gap: $gap-size;
   counter-reset: day-counter;
-  width: fit-content;
-  max-width: ($day-width * 7) + (2 * $padding-size);
-
+  width: $calendar-width;
   &__day {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-basis: $day-width;
     width: 100px;
     box-sizing: border-box;
@@ -42,14 +45,11 @@ body {
     &::before {
       counter-increment: day-counter;
       content: counter(day-counter);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       font-family: Arial, sans-serif;
       font-size: 30px;
       text-align: center;
     }
+
     &:hover {
       cursor: pointer;
       transform: translateY(-20px);
