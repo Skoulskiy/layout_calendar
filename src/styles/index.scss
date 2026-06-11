@@ -25,12 +25,12 @@ body {
   gap: $gap-size;
   counter-reset: day-counter;
   width: fit-content;
-  max-width: ($day-width * 7) + ($gap-size * 6);
+  max-width: ($day-width * 7) + (2 * $padding-size);
 
   &__day {
     position: relative;
     flex-basis: $day-width;
-    width: $day-width;
+    width: 100px;
     box-sizing: border-box;
     background-color: #eee;
     height: 100px;
@@ -68,8 +68,8 @@ body {
     }
   }
 
-  @for $length from 28 through 31 {
-    &--month-length-#{$length} {
+  @for $length from 28 to 31 {
+    &--days-#{$length} {
       .calendar__day:nth-child(n + #{$length + 1}) {
         display: none;
       }
