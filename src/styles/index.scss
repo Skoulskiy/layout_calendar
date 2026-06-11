@@ -33,7 +33,7 @@ body {
     width: 100px;
     box-sizing: border-box;
     background-color: #eee;
-    height: 100px;
+    height: $day-width;
     border: 1px solid #000;
     transition:
       transform 500ms,
@@ -68,8 +68,8 @@ body {
     }
   }
 
-  @for $length from 28 to 31 {
-    &--days-#{$length} {
+  @for $length from 28 through 31 {
+    &--month-length-#{$length} {
       .calendar__day:nth-child(n + #{$length + 1}) {
         display: none;
       }
